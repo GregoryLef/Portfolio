@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Project {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String
+  githubUrl   String?
+  demoUrl     String?
+
+  stacks      ProjectStack[]
+}
+
+model Stack {
+  id       Int           @id @default(autoincrement())
+  name     String        @unique
+
+  projects ProjectStack[]
+}
+
+model ProjectStack {
+  projectId Int
+  stackId   Int
+
+  project Project @relation(fields: [projectId], references: [id])
+  stack   Stack   @relation(fields: [stackId], references: [id])
+
+  @@id([projectId, stackId])
+}
