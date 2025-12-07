@@ -1,4 +1,3 @@
-import { id } from "zod/locales"
 import { Project } from "./project.types"
 import { prisma } from "@/lib/db"
 
