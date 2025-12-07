@@ -6,17 +6,20 @@ export abstract class BaseError extends Error {
   public readonly errorCode?: string;
   public readonly isOperational: boolean = true;
   public readonly context?: Record<string, unknown>;
+  public readonly messages?: string[]
 
   constructor(
-    message: string | string[],
+    message: string,
     statusCode: number,
     errorCode?: string,
     context?: Record<string, unknown>,
+    messages?: string[],
   ) {
-    super(Array.isArray(message) ? message.join(' ') : message);
+    super(message);
     this.statusCode = statusCode;
     this.errorCode = errorCode;
     this.context = context;
+    this.messages = messages;
 
     Error.captureStackTrace(this, this.constructor);
   }

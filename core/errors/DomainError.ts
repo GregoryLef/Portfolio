@@ -1,5 +1,3 @@
-
-import { ZodError } from 'zod';
 import { ERROR_CODES, HTTP_STATUS } from '../util/constants';
 import { BaseError } from './BaseError';
 
@@ -7,8 +5,8 @@ import { BaseError } from './BaseError';
  * Domain-specific business logic errors
  */
 export class DomainError extends BaseError {
-  constructor(message: string | string[], errorCode: string, statusCode: number, context?: Record<string, unknown>) {
-    super(message, statusCode, errorCode, context);
+  constructor(message: string, errorCode: string, statusCode: number, context?: Record<string, unknown>, messages?: string[]) {
+    super(message, statusCode, errorCode, context, messages);
   }
 }
 
@@ -17,11 +15,13 @@ export class DomainError extends BaseError {
  */
 export const DomainErrors = {
 
-  ValidationError: (message: string[]) =>
+  ValidationError: (messages: string[]) =>
     new DomainError(
-      message.join(", "),
-      ERROR_CODES.VALIDATION_ERROR,
-      HTTP_STATUS.BAD_REQUEST,
+      "Erreur de validation",        // message simple
+      ERROR_CODES.VALIDATION_ERROR, // code
+      HTTP_STATUS.BAD_REQUEST,      // status
+      undefined,                    // context
+      messages                      // tableau réel
     ),
 
   ResendError: (message: string) =>

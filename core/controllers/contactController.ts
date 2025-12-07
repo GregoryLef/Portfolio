@@ -15,13 +15,13 @@ export class ContactController {
             const parsed = contactSchema.safeParse(raw);
 
             if (!parsed.success) {
-                console.log(parsed.error.issues.map(issue => issue.message).join(", "));
+                console.log('Validation errors:', parsed.error.issues.map(issue => issue.message));
                 throw DomainErrors.ValidationError(parsed.error.issues.map(issue => issue.message));
             }
 
             const dataForm = parsed.data;
 
-            const result = await contactService.sendEmail(dataForm);
+            await contactService.sendEmail(dataForm);
 
             return ApiResponse.success('Email envoyé avec succès');
 

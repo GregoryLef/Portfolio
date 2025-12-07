@@ -19,27 +19,14 @@ export class ApiResponse {
 
         // DomainError
         if (err instanceof DomainError) {
+            console.log('DomainError:', err.message);
             return NextResponse.json(
                 {
                     success: false,
-                    error: err.message,
+                    error: err.messages || err.message,
                     code: err.errorCode,
                 },
                 { status: err.statusCode }
-            );
-        }
-
-        // ZodError
-        if (err instanceof ZodError) {
-            const messages = err.issues.map(i => i.message);
-
-            return NextResponse.json(
-                {
-                    success: false,
-                    error: messages.join(", "),
-                    code: ERROR_CODES.VALIDATION_ERROR,
-                },
-                { status: HTTP_STATUS.UNPROCESSABLE_ENTITY }
             );
         }
 
