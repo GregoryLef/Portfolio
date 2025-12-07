@@ -1,4 +1,4 @@
-import { Project } from "./project.types"
+import { Project } from "../types/projectTypes"
 import { prisma } from "@/lib/db"
 
 export class ProjectRepository {

@@ -1,5 +1,5 @@
-import { ProjectRepository } from "./project.repository";
-import { Project } from "./project.types";
+import { ProjectRepository } from "../repositories/projectRepository";
+import { Project } from "../types/projectTypes";
 
 const projectRepository = new ProjectRepository();
 

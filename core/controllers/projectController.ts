@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { ProjectService } from "./project.services";
+import { NextResponse } from "next/server";
+import { ProjectService } from "../services/projectServices";
 
 const projectService = new ProjectService();
 
