@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Fredoka, Quicksand } from "next/font/google";
 import { NavBar } from "@/components/layout/NavBar";
+import { Footer } from "@/components/layout/Footer";
 
 const fredoka = Fredoka({
   subsets: ["latin"],
@@ -24,12 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
         className={`${fredoka.variable} ${quicksand.variable} antialiased`}
       >
         <NavBar />
         {children}
+        <Footer />
       </body>
     </html>
   );

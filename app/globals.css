@@ -27,6 +27,6 @@
   --color-accent: var(--accent);
   --color-textPrimary: var(--textP);
 
-  --font-sans: var(--font-quicksand);
+  --font-regular: var(--font-quicksand);
   --font-heading: var(--font-fredoka);
 }

@@ -9,7 +9,7 @@ export const NavBar = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className="w-full flex items-center justify-between py-4 px-6 relative bg-primary">
+        <nav className="w-full flex items-center justify-between py-4 lg:py-8 px-6 relative bg-primary">
             {/* Logo */}
             <div className="min-w-64">
                 <Link href="/">
