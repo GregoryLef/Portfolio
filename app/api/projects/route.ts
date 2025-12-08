@@ -1,7 +1,7 @@
-import { ProjectController } from "@/core/controllers/projectController";
+import { ProjectController } from '@/core/controllers/projectController';
 
 const projectController = new ProjectController();
 
 export async function GET() {
-    return await projectController.getAllProjects();
+  return await projectController.getAllProjects();
 }

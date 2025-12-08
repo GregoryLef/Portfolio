@@ -1,12 +1,12 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
-  --background: #F7EDE1;
+  --background: #f7ede1;
   --foreground: #171717;
-  --primary: #7A4CE0;
-  --secondary: #F5C44D;
-  --accent: #FF92B5;
-  --textP: #1E1E1E;
+  --primary: #7a4ce0;
+  --secondary: #f5c44d;
+  --accent: #ff92b5;
+  --textP: #1e1e1e;
 
   --font-fredoka: 'Fredoka', sans-serif;
   --font-quicksand: 'Quicksand', sans-serif;
