@@ -1,4 +1,4 @@
-import { Stack } from "../stack/stack.type"
+import { Stack } from "./stack.type"
 
 export interface Project {
     id: number
