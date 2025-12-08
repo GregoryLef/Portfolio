@@ -1,0 +1,22 @@
+# Builds / caches
+.next/
+out/
+build/
+dist/
+coverage/
+.cache/
+
+# Dépendances
+node_modules/
+
+# Public (ne pas reformater images, etc.)
+public/
+
+# Divers
+*.min.css
+*.lock
+*.log
+*.md
+*.yml
+
+prisma/
