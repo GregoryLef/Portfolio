@@ -33,18 +33,20 @@ export function Button({
       break;
   }
 
-  const fullClasses = `px-5 py-2.5 rounded-md font-bold transition-colors disabled:opacity-50 min-w-64 w-fit ${variantClasses} font-tittle text-xl text-center whitespace-nowrap ${className}`;
+  const fullClasses = `px-5 py-2.5 rounded-md font-bold transition-colors disabled:opacity-50 min-w-64 w-fit ${variantClasses} font-tittle text-xl text-center whitespace-nowrap ${className} flex items-center justify-center gap-2`;
 
   if (href) {
     return (
-      <Link
-        href={href}
-        className={fullClasses}
-        target={external ? '_blank' : '_self'}
-        rel={external ? 'noopener noreferrer' : undefined}
-      >
-        {children}
-      </Link>
+      <button type={type} disabled={disabled} {...props}>
+        <Link
+          href={href}
+          target={external ? '_blank' : '_self'}
+          rel={external ? 'noopener noreferrer' : undefined}
+          className={fullClasses}
+        >
+          {children}
+        </Link>
+      </button>
     );
   }
 

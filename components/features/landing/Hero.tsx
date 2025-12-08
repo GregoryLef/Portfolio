@@ -16,7 +16,7 @@ export const Hero = () => {
           je m’adapte facilement aux stacks techniques des équipes que je rejoins.
         </p>
 
-        <div className="flex flex-col gap-6 lg:flex-row lg:justify-center">
+        <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-center">
           <Button variant="primary">Découvrir mes projets</Button>
           <Button variant="primary">Me contacter</Button>
         </div>
