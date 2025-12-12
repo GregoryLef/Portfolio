@@ -32,7 +32,7 @@ export const About = () => {
               <br />
               <span className="font-bold">J’aime relever des défis techniques</span>, lire de la
               documentation, déboguer jusqu’au bout et livrer du code propre et maintenable.
-              <span className="font-bold">Rigoureux et curieux</span>, je suis habitué à utiliser
+              <span className="font-bold"> Rigoureux et curieux</span>, je suis habitué à utiliser
               Git pour versionner mes projets et à tester sur différents appareils pour garantir une
               expérience fluide. Travailler en équipe ou solo, je m’adapte vite et je pose les
               bonnes questions pour avancer efficacement.
@@ -50,7 +50,7 @@ export const About = () => {
                 Github
               </Button>
               <Button variant="primary" href={''} external={true}>
-                <Image src="/linkedinLogo.svg" alt="Linkedin Logo" width={30} height={30} />
+                <Image src="/linkedinLogo.png" alt="Linkedin Logo" width={30} height={30} />
                 LinkedIn
               </Button>
             </div>
