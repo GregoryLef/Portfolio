@@ -13,12 +13,29 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+model ProjectContext {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+
+  projects Project[]
+}
+
 model Project {
   id          Int           @id @default(autoincrement())
   name        String
   description String
+  contextId   Int
+  date        String
   githubUrl   String?
   demoUrl     String?
+  landingUrl  String?
+  capture1Url String?
+  capture2Url String?
+  capture3Url String?
+  capture4Url String?
+  capture5Url String?
+
+  context     ProjectContext  @relation(fields: [contextId], references: [id])
 
   stacks      ProjectStack[]
 }
