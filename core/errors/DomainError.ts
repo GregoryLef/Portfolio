@@ -38,4 +38,12 @@ export const DomainErrors = {
       ERROR_CODES.INTERNAL_SERVER_ERROR,
       HTTP_STATUS.INTERNAL_SERVER_ERROR,
     ),
+
+    ProjectNotFound: () =>
+      new DomainError(
+      'Projet introuvable',
+      ERROR_CODES.PROJECT_NOT_FOUND,
+      HTTP_STATUS.NOT_FOUND,
+    ),
+
 } as const;

@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { ERROR_CODES, HTTP_STATUS } from './constants';
 import { DomainError } from '../errors/DomainError';
-import { ZodError } from 'zod';
 
 export class ApiResponse {
   static success<T>(message: string, data?: T, status: number = HTTP_STATUS.OK) {
