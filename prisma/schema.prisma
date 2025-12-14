@@ -13,9 +13,23 @@ datasource db {
   url      = "file:./dev.db"
 }
 
-model ProjectContext {
+model Context {
   id    Int     @id @default(autoincrement())
   name  String  @unique
+
+  projects ProjectContext[]
+}
+
+model Role {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  projects Project[]
+}
+
+model Activity {
+  id   Int    @id @default(autoincrement())
+  name String @unique
 
   projects Project[]
 }
@@ -23,21 +37,30 @@ model ProjectContext {
 model Project {
   id          Int           @id @default(autoincrement())
   name        String
+  resume      String
   description String
-  contextId   Int
+  roleId      Int
+  activityId  Int
   date        String
   githubUrl   String?
   demoUrl     String?
-  landingUrl  String?
-  capture1Url String?
-  capture2Url String?
-  capture3Url String?
-  capture4Url String?
-  capture5Url String?
 
-  context     ProjectContext  @relation(fields: [contextId], references: [id])
+  role        Role @relation(fields: [roleId], references: [id])
+  activity    Activity @relation(fields: [activityId], references: [id])
 
   stacks      ProjectStack[]
+  captures    ProjectCapture[]
+  contexts    ProjectContext[]
+}
+
+model ProjectCapture {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  url       String
+  order     Int
+  type      String? 
+
+  project   Project  @relation(fields: [projectId], references: [id])
 }
 
 model Stack {
@@ -55,4 +78,14 @@ model ProjectStack {
   stack   Stack   @relation(fields: [stackId], references: [id])
 
   @@id([projectId, stackId])
+}
+
+model ProjectContext {
+  projectId Int
+  contextId Int
+
+  project Project @relation(fields: [projectId], references: [id])
+  context Context @relation(fields: [contextId], references: [id])
+
+  @@id([projectId, contextId])
 }
