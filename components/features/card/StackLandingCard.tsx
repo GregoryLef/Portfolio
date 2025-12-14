@@ -8,7 +8,7 @@ interface StackCardProps {
   height: number;
 }
 
-export const StackCard = ({ name, src, alt, width, height }: StackCardProps) => {
+export const StackLandingCard = ({ name, src, alt, width, height }: StackCardProps) => {
   return (
       <div className="flex flex-col justify-center items-center bg-primary w-36 h-36 lg:w-80 lg:h-80 rounded-md p-4" style={{
         boxShadow: "10px 10px 4px rgba(0, 0, 0, 0.25)",}}>
