@@ -6,7 +6,7 @@ export abstract class BaseError extends Error {
   public readonly errorCode?: string;
   public readonly isOperational: boolean = true;
   public readonly context?: Record<string, unknown>;
-  public readonly messages?: string[]
+  public readonly messages?: string[];
 
   constructor(
     message: string,

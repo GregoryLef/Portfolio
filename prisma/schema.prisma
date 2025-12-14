@@ -13,14 +13,54 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+model Context {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+
+  projects ProjectContext[]
+}
+
+model Role {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  projects Project[]
+}
+
+model Activity {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  projects Project[]
+}
+
 model Project {
   id          Int           @id @default(autoincrement())
   name        String
+  resume      String
   description String
+  roleId      Int
+  activityId  Int
+  date        String
   githubUrl   String?
   demoUrl     String?
 
+  role        Role @relation(fields: [roleId], references: [id])
+  activity    Activity @relation(fields: [activityId], references: [id])
+
   stacks      ProjectStack[]
+  captures    ProjectCapture[]
+  contexts    ProjectContext[]
+}
+
+model ProjectCapture {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  url       String
+  order     Int
+  type      String? 
+
+  project   Project  @relation(fields: [projectId], references: [id])
 }
 
 model Stack {
@@ -38,4 +78,14 @@ model ProjectStack {
   stack   Stack   @relation(fields: [stackId], references: [id])
 
   @@id([projectId, stackId])
+}
+
+model ProjectContext {
+  projectId Int
+  contextId Int
+
+  project Project @relation(fields: [projectId], references: [id])
+  context Context @relation(fields: [contextId], references: [id])
+
+  @@id([projectId, contextId])
 }
